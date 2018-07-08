@@ -1,7 +1,9 @@
-package com.android.app.fourquadrantnote;
+package com.android.app;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.android.app.fourquadrantnote.R;
 
 public class MainActivity extends AppCompatActivity {
 

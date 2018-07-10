@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#3f51b5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="shenhui">#676767</color>
+    <color name="qianhui">#f2f2f2</color>
+    <color name="top_left1">#02fc97</color>
+    <color name="top_left2">#028b0e</color>
+    <color name="top_right1">#ffc833</color>
+    <color name="top_right2">#ff1306</color>
+    <color name="down_left2">#0241fb</color>
+    <color name="down_left1">#02cacd</color>
+    <color name="down_right1">#ffffc9</color>
+    <color name="down_right2">#ffff13</color>
+    <color name="lightgrey">#c8c8c8</color>
+    <color name="nanzi">#67679a</color>
+    <color name="huihei">#373737</color>
+    <color name="hei">#2a2a2a</color>
 </resources>

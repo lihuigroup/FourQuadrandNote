@@ -71,4 +71,49 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_ui"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/permission_ic_micro_phone"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_uu_i"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/quard_urgent_important" />
+
+    <Button
+        android:id="@+id/btn_uu_i"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/permission_ic_micro_phone"
+        app:layout_constraintBottom_toTopOf="@+id/quard_unurgent_unimportant"
+        app:layout_constraintEnd_toStartOf="@+id/quard_urgent_important"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_uu_ui"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/permission_ic_micro_phone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/quard_urgent_unimportant"
+        app:layout_constraintStart_toStartOf="@+id/quard_unurgent_unimportant" />
+
+    <Button
+        android:id="@+id/btn_u_ui"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/permission_ic_micro_phone"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_uu_ui"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/quard_urgent_unimportant" />
 </android.support.constraint.ConstraintLayout>

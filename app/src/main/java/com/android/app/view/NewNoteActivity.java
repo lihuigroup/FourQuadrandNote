@@ -53,6 +53,7 @@ public class NewNoteActivity extends AppCompatActivity {
         }
 
         NoteModel.addNote(new NoteEntry(-1,s_t,s_c,date,type,false));
+        finish();
 
     }
 

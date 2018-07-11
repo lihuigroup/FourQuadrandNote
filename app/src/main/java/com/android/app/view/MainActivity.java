@@ -10,13 +10,23 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
 
+import com.android.app.Adapter.NoteListAdapter;
+import com.android.app.Entry.NoteEntry;
 import com.android.app.fourquadrantnote.R;
+import com.android.app.model.NoteModel;
 import com.android.app.model.UserModel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
+    final int IMPORT=0;
+    final int URGENT=1;
+
+    private int sort_type;
 
     private View headView;
     private Intent intent;
@@ -24,7 +34,12 @@ public class MainActivity extends AppCompatActivity {
     private TextView name;
     private TextView txt_userManage;
     private DrawerLayout drawerLayout;
-    private ListView listView;
+    private ExpandableListView listView;
+
+    private List<NoteEntry> u_i_list;     //四大便签分类
+    private List<NoteEntry> u_ui_list;
+    private List<NoteEntry> uu_i_list;
+    private List<NoteEntry> uu_ui_list;
 
     private NavigationView.OnNavigationItemSelectedListener leftNav=
             new NavigationView.OnNavigationItemSelectedListener() {
@@ -63,6 +78,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_contain);
+
+        sort_type=IMPORT;
+
         NavigationView leftnavigation=(NavigationView) findViewById(R.id.nav);
         leftnavigation.setNavigationItemSelectedListener(leftNav);
 
@@ -105,7 +123,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         listView=findViewById(R.id.list);
+        initList();
+    }
+
+    @Override
+    protected void onResume() {
+        initList();
+        super.onResume();
     }
 
     public void setName(){
@@ -116,5 +142,47 @@ public class MainActivity extends AppCompatActivity {
 
     public void logout(){
         name.setText("尚未登陆");
+    }
+
+    public void initDate(){
+        List<NoteEntry> entries= NoteModel.getEntries();
+        u_i_list=new ArrayList<>();
+        u_ui_list=new ArrayList<>();
+        uu_i_list=new ArrayList<>();
+        uu_ui_list=new ArrayList<>();
+
+        for (int i=0;i<entries.size();i++){
+            NoteEntry entry=entries.get(i);
+            int type= entry.getType();
+            switch (type){//0重要紧急  1重要不紧急 2不重要紧急 3不重要不紧急
+                case 0:
+                    u_i_list.add(entry);
+                    break;
+                case 1:
+                    uu_i_list.add(entry);
+                    break;
+                case 2:
+                    u_ui_list.add(entry);
+                    break;
+                case 3:
+                    uu_ui_list.add(entry);
+                    break;
+            }
+        }
+
+
+    }
+
+    public void initList(){
+        initDate();
+        /*Log.i("u_i_list",String.valueOf(u_i_list.size()));
+        Log.i("u_ui_list",String.valueOf(u_ui_list.size()));
+        Log.i("uu_i_list",String.valueOf(uu_i_list.size()));
+        Log.i("uu_ui_list",String.valueOf(uu_ui_list.size()));*/
+        listView.setAdapter(new NoteListAdapter(this,sort_type,u_i_list,u_ui_list,uu_i_list,uu_ui_list));
+        int groupCount = listView.getCount();
+        for (int i=0; i<groupCount; i++) {
+            listView.expandGroup(i);
+        };
     }
 }

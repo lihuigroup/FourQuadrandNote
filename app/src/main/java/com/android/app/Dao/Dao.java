@@ -2,6 +2,7 @@ package com.android.app.Dao;
 
 import android.content.Context;
 import android.os.Environment;
+import android.util.Log;
 
 import com.android.app.Entry.NoteEntry;
 
@@ -61,7 +62,9 @@ public class Dao {
     }
 
     public static List<Note> NoteQueryAllNote(){
-        return dao.getNoteDao().queryBuilder().list();//??????
+        List<Note> l= dao.getNoteDao().queryBuilder().list();
+        Log.i("quaryall",String.valueOf(l.size()));
+        return l;//??????
     }
 
     public static void NoteInserOrReplaceNote(NoteEntry entry){

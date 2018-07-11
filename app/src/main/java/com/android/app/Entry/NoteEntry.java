@@ -53,6 +53,13 @@ public class NoteEntry {
         getNoteEntries().add(entry);
     }
 
+    public static void deleteNote(NoteEntry entry){
+        for (int i=0;i<getNoteEntries().size();i++){
+            if (noteEntries.get(i).getNote_id()==entry.getNote_id())
+                noteEntries.remove(i);
+        }
+    }
+
     public static List<NoteEntry> getNoteEntries() {
         if(noteEntries ==null)
             noteEntries =new ArrayList<>();

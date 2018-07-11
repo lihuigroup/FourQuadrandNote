@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/qianhui"
-    tools:context="com.android.app.MainActivity">
+    tools:context="com.android.app.view.MainActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/edit_account"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginEnd="32dp"
@@ -49,7 +49,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/editText6"
+        android:id="@+id/edit_psw"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="24dp"
@@ -58,9 +58,9 @@
         android:hint="密码"
         android:inputType="numberPassword"
         android:padding="5dp"
-        app:layout_constraintEnd_toEndOf="@+id/editText5"
-        app:layout_constraintStart_toStartOf="@+id/editText5"
-        app:layout_constraintTop_toBottomOf="@+id/editText5" />
+        app:layout_constraintEnd_toEndOf="@+id/edit_account"
+        app:layout_constraintStart_toStartOf="@+id/edit_account"
+        app:layout_constraintTop_toBottomOf="@+id/edit_account" />
 
     <Button
         android:id="@+id/button2"
@@ -68,16 +68,17 @@
         android:layout_height="45dp"
         android:layout_marginTop="32dp"
         android:background="@color/nanzi"
+        android:onClick="submit"
         android:text="确认"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/editText6"
+        app:layout_constraintEnd_toEndOf="@+id/edit_psw"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editText6"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintStart_toStartOf="@+id/edit_psw"
+        app:layout_constraintTop_toBottomOf="@+id/edit_psw_again" />
 
     <EditText
-        android:id="@+id/textView14"
+        android:id="@+id/edit_psw_again"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="24dp"
@@ -87,8 +88,30 @@
         android:inputType="numberPassword"
         android:padding="5dp"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/editText6"
-        app:layout_constraintStart_toStartOf="@+id/editText6"
-        app:layout_constraintTop_toBottomOf="@+id/editText6" />
+        app:layout_constraintEnd_toEndOf="@+id/edit_psw"
+        app:layout_constraintStart_toStartOf="@+id/edit_psw"
+        app:layout_constraintTop_toBottomOf="@+id/edit_psw" />
+
+    <TextView
+        android:id="@+id/txt_psw_err"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="两次密码不一样！"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_psw_again" />
+
+    <TextView
+        android:id="@+id/txt_acc_err"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="8dp"
+        android:text="用户名重复！"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_psw_again" />
 
 </android.support.constraint.ConstraintLayout>

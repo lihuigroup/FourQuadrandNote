@@ -4,59 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.android.app.FourQuadrandActivity">
+    tools:context="com.android.app.view.FourQuadrandActivity">
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/qurad_unurgent_important"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/shape_gradient_top_left"
         android:gravity="center"
         android:text="重要不紧急"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView7"
-        app:layout_constraintEnd_toStartOf="@+id/textView6"
+        app:layout_constraintBottom_toTopOf="@+id/quard_unurgent_unimportant"
+        app:layout_constraintEnd_toStartOf="@+id/quard_urgent_important"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/quard_urgent_important"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/shape_gradient_top_right"
         android:gravity="center"
         android:text="重要紧急"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintBottom_toTopOf="@+id/quard_urgent_unimportant"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintStart_toEndOf="@+id/qurad_unurgent_important"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/quard_unurgent_unimportant"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/shape_gradient_down_left"
         android:gravity="center"
-        android:text="不重要紧急"
+        android:text="不重要不紧急"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView8"
+        app:layout_constraintEnd_toStartOf="@+id/quard_urgent_unimportant"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/qurad_unurgent_important" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/quard_urgent_unimportant"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/shape_gradient_down_right"
         android:gravity="center"
-        android:text="紧急不重要"
+        android:text="不重要紧急"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintStart_toEndOf="@+id/quard_unurgent_unimportant"
+        app:layout_constraintTop_toBottomOf="@+id/quard_urgent_important" />
 
     <Button
         android:id="@+id/text_back"

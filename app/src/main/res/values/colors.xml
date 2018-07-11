@@ -17,4 +17,6 @@
     <color name="nanzi">#67679a</color>
     <color name="huihei">#373737</color>
     <color name="hei">#2a2a2a</color>
+    <!-- 亮海蓝色 -->
+    <color name="dodgerblue">#1e90ff</color>
 </resources>

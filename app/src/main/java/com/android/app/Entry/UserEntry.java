@@ -1,28 +1,30 @@
 package com.android.app.Entry;
 
+import com.android.app.Dao.Dao;
 import com.android.app.Dao.User;
 
 public class UserEntry {
-    private static UserEntry user;
+    private static UserEntry userEntry;
+    public static int id;
     private int user_id;
     private boolean is_online;
 
     public static void DaoToEntry(User _user){
-        user=_user.toEntry();
+        userEntry =_user.toEntry();
     }
 
     public static void EntryToDao(){
-        //todo
+        Dao.UserInsertUser(userEntry.toUser());
     }
 
-    public static UserEntry getUser() {
-        if (user==null)
-            user=new UserEntry();
-        return user;
+    public static UserEntry getUserEntry() {
+        if (userEntry ==null)
+            userEntry =new UserEntry();
+        return userEntry;
     }
 
-    public static void setUser(UserEntry user_) {
-        user = user_;
+    public static void setUserEntry(UserEntry user_) {
+        userEntry = user_;
     }
     public User toUser(){
         return new User(new Long(user_id),is_online);

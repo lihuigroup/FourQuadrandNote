@@ -1,5 +1,6 @@
 package com.android.app.Entry;
 
+import com.android.app.Dao.Dao;
 import com.android.app.Dao.Note;
 
 import java.util.ArrayList;
@@ -7,13 +8,15 @@ import java.util.Date;
 import java.util.List;
 
 public class NoteEntry {
-    private static List<NoteEntry> notes;
+    private static List<NoteEntry> noteEntries;
     private int note_id;
     private String tittle;
     private String content;
     private Date date;
-    private int type;
-    private int user_id;
+    private int type;//0重要紧急  1重要不紧急 2不重要紧急 3不重要不紧急
+    private boolean has_sound;
+
+
 
     public Note toNote(){
         Long id=null;
@@ -24,41 +27,49 @@ public class NoteEntry {
                     content,
                     date,
                     new Long(type),
-                    new Long(user_id));
+                    has_sound);
     }
 
     public static void DaoToEntry(List<Note> list){
-        if(notes!=null&&!notes.isEmpty())
-            notes.clear();
+        if(noteEntries !=null&&!noteEntries.isEmpty())
+            noteEntries.clear();
         else {
-            getNotes();
+            getNoteEntries();
         }
         for (int i=0;i<list.size();i++){
-            notes.add(list.get(i).toEntry());
+            noteEntries.add(list.get(i).toEntry());
         }
     }
 
     public static void EntryToDao(){
-        //todo
+        List<Note> list=new ArrayList<>();
+        for (int i=0;i<noteEntries.size();i++){
+            list.add(noteEntries.get(i).toNote());
+        }
+        Dao.NoteInserOrReplaceNotes(list);
     }
 
-    public static List<NoteEntry> getNotes() {
-        if(notes==null)
-            notes=new ArrayList<>();
-        return notes;
+    public static void addNote(NoteEntry entry){
+        getNoteEntries().add(entry);
     }
 
-    public static void setNotes(List<NoteEntry> notes_) {
-        notes = notes_;
+    public static List<NoteEntry> getNoteEntries() {
+        if(noteEntries ==null)
+            noteEntries =new ArrayList<>();
+        return noteEntries;
     }
 
-    public NoteEntry(int note_id, String tittle, String content, Date date, int type, int user_id) {
+    public static void setNoteEntries(List<NoteEntry> notes_) {
+        noteEntries = notes_;
+    }
+
+    public NoteEntry(int note_id, String tittle, String content, Date date, int type,boolean has_sound) {
         this.note_id = note_id;
         this.tittle = tittle;
         this.content = content;
         this.date = date;
         this.type = type;
-        this.user_id = user_id;
+        this.has_sound=has_sound;
     }
 
     public int getNote_id() {
@@ -101,13 +112,14 @@ public class NoteEntry {
         this.type = type;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public boolean isHas_sound() {
+        return has_sound;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setHas_sound(boolean has_sound) {
+        this.has_sound = has_sound;
     }
+
 
 
 }

@@ -27,4 +27,24 @@
         <activity android:name="com.android.app.view.ChangPasswordActivity"></activity>
     </application>
 
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <meta-data
+        android:name="com.baidu.speech.APP_ID"
+        android:value="11522774" />
+    <!-- 请填写应用实际的API_KEY -->
+    <meta-data
+        android:name="com.baidu.speech.API_KEY"
+        android:value="uhXcGh3nqZCEDGHlUAhf4mKB" />
+    <!-- 请填写应用实际的SECRET_KEY -->
+    <meta-data
+        android:name="com.baidu.speech.SECRET_KEY"
+        android:value="ZML6pcVjmGItGipwT8uup10fV9v1mmqp" />
+
 </manifest>

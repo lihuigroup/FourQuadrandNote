@@ -1,5 +1,6 @@
 package com.android.app.permission;
 
+import android.Manifest;
 import android.content.Context;
 
 import com.android.app.fourquadrantnote.R;
@@ -19,6 +20,7 @@ public class ClientPermission {
     public static void permissionManagement(Context context){
         List<PermissionItem> permissionItems = new ArrayList<PermissionItem>();
         permissionItems.add(new PermissionItem(android.Manifest.permission.READ_EXTERNAL_STORAGE, "读取手机内存", R.drawable.permission_ic_storage));
+        permissionItems.add(new PermissionItem(Manifest.permission.RECORD_AUDIO, "录音", R.drawable.permission_ic_micro_phone));
         HiPermission.create(context)
                 .permissions(permissionItems)
                 .checkMutiPermission(new PermissionCallback() {
